@@ -42,4 +42,6 @@ public class TestIstDreieck {
 		
 		assertFalse(dreieck.istDreieck());
 	}
+	
+	
 }
