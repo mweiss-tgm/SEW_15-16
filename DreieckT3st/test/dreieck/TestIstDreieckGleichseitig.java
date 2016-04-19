@@ -17,6 +17,24 @@ public class TestIstDreieckGleichseitig {
 	}
 	
 	@Test
+	public void testIstKeinDreieck() {
+		dreieck.setSeite_a(1);
+		dreieck.setSeite_b(0);
+		dreieck.setSeite_c(4);
+		
+		assertFalse(dreieck.istDreieck());
+	}
+	
+	@Test
+	public void testIstDreieck() {
+		dreieck.setSeite_a(1);
+		dreieck.setSeite_b(1);
+		dreieck.setSeite_c(1);
+		
+		assertTrue(dreieck.istDreieck());
+	}
+	
+	@Test
 	public void testIstGleichseitig() {
 		dreieck.setSeite_a(1);
 		dreieck.setSeite_b(1);
