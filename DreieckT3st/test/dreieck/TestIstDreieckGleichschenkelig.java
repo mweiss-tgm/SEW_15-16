@@ -45,28 +45,28 @@ public class TestIstDreieckGleichschenkelig {
 	
 	@Test
 	public void testIstAUndBGleichschenkelig() {
-		dreieck.setSeite_a(2);
-		dreieck.setSeite_b(2);
+		dreieck.setSeite_a(6);
+		dreieck.setSeite_b(6);
 		dreieck.setSeite_c(4);
 		
-		assertFalse(dreieck.gleichSchenkelig());
+		assertTrue(dreieck.gleichSchenkelig());
 	}
 	
 	@Test
-	public void testIstBundCGleichschenkelig() {
+	public void testIstBUndCGleichschenkelig() {
 		dreieck.setSeite_a(4);
-		dreieck.setSeite_b(2);
-		dreieck.setSeite_c(2);
+		dreieck.setSeite_b(6);
+		dreieck.setSeite_c(6);
 		
-		assertFalse(dreieck.gleichSchenkelig());
+		assertTrue(dreieck.gleichSchenkelig());
 	}
 	
 	@Test
-	public void testIstAundCGleichschenkelig() {
-		dreieck.setSeite_a(2);
+	public void testIstAUndCGleichschenkelig() {
+		dreieck.setSeite_a(6);
 		dreieck.setSeite_b(4);
-		dreieck.setSeite_c(2);
+		dreieck.setSeite_c(6);
 		
-		assertFalse(dreieck.gleichSchenkelig());
+		assertTrue(dreieck.gleichSchenkelig());
 	}
 }

@@ -20,7 +20,7 @@ public class TestIstDreieckRechtwinkelig {
 	public void testIstKeinDreieck() {
 		dreieck.setSeite_a(0);
 		dreieck.setSeite_b(4);
-		dreieck.setSeite_c(1);
+		dreieck.setSeite_c(0);
 
 		assertFalse(dreieck.rechtWinkelig());
 	}
@@ -31,7 +31,7 @@ public class TestIstDreieckRechtwinkelig {
 		dreieck.setSeite_b(9);
 		dreieck.setSeite_c(8);
 
-		assertTrue(dreieck.rechtWinkelig());
+		assertFalse(dreieck.rechtWinkelig());
 	}
 
 	@Test
@@ -40,16 +40,16 @@ public class TestIstDreieckRechtwinkelig {
 		dreieck.setSeite_b(10);
 		dreieck.setSeite_c(8);
 
-		assertTrue(dreieck.rechtWinkelig());
+		assertFalse(dreieck.rechtWinkelig());
 	}
 
 	@Test
 	public void testIstCGroesserAUndB() {
-		dreieck.setSeite_a(3);
-		dreieck.setSeite_b(5);
+		dreieck.setSeite_a(8);
+		dreieck.setSeite_b(9);
 		dreieck.setSeite_c(10);
 
-		assertTrue(dreieck.rechtWinkelig());
+		assertFalse(dreieck.rechtWinkelig());
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class TestIstDreieckRechtwinkelig {
 	}
 
 	@Test
-	public void testIstNichtRechtWinkelig() {
+	public void testIstNichtRechtwinkelig() {
 		dreieck.setSeite_a(3);
 		dreieck.setSeite_b(3);
 		dreieck.setSeite_c(4);
@@ -77,5 +77,14 @@ public class TestIstDreieckRechtwinkelig {
 		dreieck.setSeite_c(6);
 
 		assertFalse(dreieck.rechtWinkelig());
+	}
+	
+	@Test
+	public void zeroWasHere() {
+		dreieck.setSeite_a(3);
+		dreieck.setSeite_b(5);
+		dreieck.setSeite_c(4);
+		
+		assertTrue(dreieck.rechtWinkelig());
 	}
 }
