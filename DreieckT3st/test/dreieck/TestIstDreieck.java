@@ -159,4 +159,9 @@ public class TestIstDreieck {
 		
 		assertTrue(dreieck.istDreieck());
 	}
+	
+	@After
+	public void tearDown() throws Exception {
+		
+	}
 }
