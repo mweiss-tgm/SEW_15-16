@@ -22,7 +22,7 @@ public class TestIstDreieckGleichseitig {
 		dreieck.setSeite_b(0);
 		dreieck.setSeite_c(4);
 		
-		assertFalse(dreieck.istDreieck());
+		assertFalse(dreieck.gleichSeitig());
 	}
 	
 	@Test
@@ -31,7 +31,7 @@ public class TestIstDreieckGleichseitig {
 		dreieck.setSeite_b(1);
 		dreieck.setSeite_c(1);
 		
-		assertTrue(dreieck.istDreieck());
+		assertTrue(dreieck.gleichSeitig());
 	}
 	
 	@Test
