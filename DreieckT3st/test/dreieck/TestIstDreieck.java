@@ -123,5 +123,40 @@ public class TestIstDreieck {
 		
 		assertFalse(dreieck.istDreieck());
 	}
-
+	
+	@Test
+	public void testAPlusBKleinerC() {
+		dreieck.setSeite_a(1);
+		dreieck.setSeite_b(3);
+		dreieck.setSeite_c(6);
+		
+		assertFalse(dreieck.istDreieck());
+	}
+	
+	@Test
+	public void testAPlusCKleinerB() {
+		dreieck.setSeite_a(1);
+		dreieck.setSeite_b(6);
+		dreieck.setSeite_c(3);
+		
+		assertFalse(dreieck.istDreieck());
+	}
+	
+	@Test
+	public void testCPlusBKleinerA() {
+		dreieck.setSeite_a(6);
+		dreieck.setSeite_b(1);
+		dreieck.setSeite_c(3);
+		
+		assertFalse(dreieck.istDreieck());
+	}
+	
+	@Test
+	public void testIstDreieckTrue() {
+		dreieck.setSeite_a(3);
+		dreieck.setSeite_b(3);
+		dreieck.setSeite_c(3);
+		
+		assertTrue(dreieck.istDreieck());
+	}
 }
