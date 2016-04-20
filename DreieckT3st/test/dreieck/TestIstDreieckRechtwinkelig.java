@@ -80,7 +80,7 @@ public class TestIstDreieckRechtwinkelig {
 	}
 	
 	@Test
-	public void zeroWasHere() {
+	public void testHypotenuseGleichKatheten() {
 		dreieck.setSeite_a(3);
 		dreieck.setSeite_b(5);
 		dreieck.setSeite_c(4);
