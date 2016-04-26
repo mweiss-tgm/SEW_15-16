@@ -103,6 +103,69 @@ public class MockitoTest {
 		 verify(mockedList, atLeastOnce()).add("three times");
 		 verify(mockedList, atLeast(2)).add("twice");
 		 verify(mockedList, atMost(5)).add("three times");
+	}
+	
+	@Test
+	public void testStubbingWithException() {
+		//mit doThrow() können Exceptions geworfen werden
+		doThrow(new RuntimeException()).when(mockedList).clear();
+
+		   //following throws RuntimeException:
+		   mockedList.clear();
+	}
+	
+	//mit InOrder wird überprüft ob die Strings in der richtige Reihenfolge geadded worden sind
+	@Test
+	public void testVerificationOrder() {
+		 // A. Single mock whose methods must be invoked in a particular order
+		 List singleMock = mock(List.class);
+
+		 //using a single mock
+		 singleMock.add("was added first");
+		 singleMock.add("was added second");
+
+		 //create an inOrder verifier for a single mock
+		 InOrder inOrder = inOrder(singleMock);
+
+		 //following will make sure that add is first called with "was added first, then with "was added second"
+		 inOrder.verify(singleMock).add("was added first");
+		 inOrder.verify(singleMock).add("was added second");
+
+		 // B. Multiple mocks that must be used in a particular order
+		 List firstMock = mock(List.class);
+		 List secondMock = mock(List.class);
+
+		 //using mocks
+		 firstMock.add("was called first");
+		 secondMock.add("was called second");
+
+		 //create inOrder object passing any mocks that need to be verified in order
+		 InOrder inOrder2 = inOrder(firstMock, secondMock);
+
+		 //following will make sure that firstMock was called before secondMock
+		 inOrder2.verify(firstMock).add("was called first");
+		 inOrder2.verify(secondMock).add("was called second");
+
+		 // Oh, and A + B can be mixed together at will
+	}
+	
+	@Test
+	public void testNoInteractions() {
+		List mockOne = mock(List.class);
+		List mockTwo = mock(List.class);
+		List mockThree = mock(List.class);
+		
+		//using mocks - only mockOne is interacted
+		 mockOne.add("one");
+
+		 //ordinary verification
+		 verify(mockOne).add("one");
+
+		 //verify that method was never called on a mock
+		 verify(mockOne, never()).add("two");
+
+		 //verify that other mocks were not interacted
+		 verifyZeroInteractions(mockTwo, mockThree);
 
 	}
 }
